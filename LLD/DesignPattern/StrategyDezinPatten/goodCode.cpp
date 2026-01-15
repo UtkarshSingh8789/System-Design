@@ -1,3 +1,12 @@
+// startegy design pattern is used when all or  most of these are true;
+//1.Same task multiple ways to do it
+// Example:
+// Payment → UPI / Card / NetBanking
+// Driving → Normal / Sports / Offroad
+// Sorting → Quick / Merge / Heap
+
+// 2. when we are using to much of if-else and switch
+// 3. behaviour may change in future;
 #include <iostream>
 #include <algorithm>
 #include <bitset>
@@ -45,7 +54,7 @@ public:
 // main class that will communicate with interface:
 class Vehicle{
 public:
-    DriveStrategy* d;
+    DriveStrategy* d; // we are accepting this drive Strategy Dynamically
     Vehicle(DriveStrategy* d) : d(d) {}
     void drive(){
         d->drive();
