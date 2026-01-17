@@ -141,7 +141,9 @@ public:
 class ConcreteObserver : public Observer {
     string name;
 public:
-    ConcreteObserver(string name) : name(name) {}
+    ConcreteObserver(string name){
+        this->name=name;
+    }
     void update(ObservableData* d1){
         cout<<name<<" received -> "<< "data1: "<<d1->data1<<", data2: "<<d1->data2<<endl;
     }
