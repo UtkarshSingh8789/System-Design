@@ -70,7 +70,7 @@ public:
             (it)->update(data);
         }
     }
-    void setWeatherReadings(float temp,float humidity){
+    void setWeatherReadings(float temp,float humidity) override {
         data=new WeatherData(temp,humidity);
         notify();
     }
@@ -79,10 +79,17 @@ class concreteObserver : public WeatherObserver{
 public:
     void update(WeatherData* d) override {
         // now use a business logic to use the data;
+        cout<<"I have got the Weather Data"<<endl;
     }
 };
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    WeatherObservable* weatherStation=new ConcreteObservable();
+    WeatherObserver* obs1=new concreteObserver();
+    WeatherObserver* obs2=new concreteObserver();
+    weatherStation->addObserver(obs1);
+    weatherStation->addObserver(obs2);
+    weatherStation->setWeatherReadings(30.3,65);
     return 0;
 }
